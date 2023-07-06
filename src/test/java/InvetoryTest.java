@@ -75,6 +75,19 @@ public class InvetoryTest extends BaseTest{
         Assert.assertEquals(checkoutStepOnePage.getMessage(),"Thank you for your order!");
 
     }
+@Test
+
+    public void BuyProductsWithOutData()
+    {
+        inventoryPage.clickLight();
+        inventoryPage.clickBackpack();
+        inventoryPage.clickCart();
+        cartPage.clickCheckout();
+        checkoutStepOnePage.setForm("","","");
+
+        Assert.assertEquals(checkoutStepOnePage.getError(),"Error:First Name is required");
+
+    }
 
     @AfterMethod
     public void after()
